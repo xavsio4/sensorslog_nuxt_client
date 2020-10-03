@@ -1,0 +1,164 @@
+// Base Variables
+//
+// styleguide base.variables
+@charset "UTF-8";
+
+$fa-font-path: "webfonts";
+
+
+
+// Colors
+$black: #000;
+$white: #fff;
+$red: hsl(354, 83%, 55%);
+$orange: #ff9800;
+$red_fuschia: #ff4081;
+$green: #52c41a;
+$deep_purple: #512da8;
+$gray_light: #c9c8c8;
+$gray: #838282;
+$gray_blue:#EDF2F7;
+$gray_medium: hsl(0, 3%, 62%);
+$gray_dark: #333333;
+$darkblue: #253652;
+$purple: #9a68c7;
+$blue: #3ba9e4;
+$blue_medium: #5797fc;
+$green_medium: #75b343;
+$orange: #ff6a42;
+$base_color: #2c3e50;
+
+//theme colors
+$primary: $deep_purple;
+$secondary: $red_fuschia;
+$terciary: $gray_blue;
+$warning: $orange;
+$success: $green;
+$info: $blue_medium;
+$danger: $red;
+$muted: $gray_medium;
+$neutral: $gray_blue;
+$main-background: $white;
+$secondary-background: $gray_light;
+
+// Corp-Colors
+$corp-color: $blue !default;
+$corp-color-dark: darken($corp-color, 15%) !default;
+$corp-color-second: $red !default;
+$corp-color-second-dark: darken($corp-color-second, 15%) !default;
+
+
+// Border
+$base-border-radius: 2px !default;
+$rounded-border-radius: 50% !default;
+$base-border-color: $gray !default;
+
+//============================================================
+//
+// Easing
+//
+// Thanks to Robert Penner for his sterling work on easing,
+// and to Matthew Lein for converting these functions into
+// approximated cubic-bezier functions. Respect.
+//
+// @see http://robertpenner.com/
+// @see http://matthewlein.com/ceaser/
+//
+//============================================================
+
+// Cubic
+$easeInCubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$easeOutCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+// Circ
+$easeInCirc: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+$easeOutCirc: cubic-bezier(0.075, 0.82, 0.165, 1);
+$easeInOutCirc: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+// Expo
+$easeInExpo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$easeOutExpo: cubic-bezier(0.19, 1, 0.22, 1);
+$easeInOutExpo: cubic-bezier(1, 0, 0, 1);
+
+// Quad
+$easeInQuad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$easeOutQuad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$easeInOutQuad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+// Quart
+$easeInQuart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+$easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
+$easeInOutQuart: cubic-bezier(0.77, 0, 0.175, 1);
+
+// Quint
+$easeInQuint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+$easeOutQuint: cubic-bezier(0.23, 1, 0.32, 1);
+$easeInOutQuint: cubic-bezier(0.86, 0, 0.07, 1);
+
+// Sine
+$easeInSine: cubic-bezier(0.47, 0, 0.745, 0.715);
+$easeOutSine: cubic-bezier(0.39, 0.575, 0.565, 1);
+$easeInOutSine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+// Back
+$easeInBack: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$easeInOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+// Grid
+$grid-columns: 12 !default; // Set number of columns in the grid
+
+$xs-max: 40rem !default; // Set xs breakpoint's max width
+$sm-max: 64rem !default; // Set sm breakpoint's max width
+$md-max: 90rem !default; // Set md breakpoint's max width
+$lg-max: 120rem !default; // Set lg breakpoint's max width
+
+$gutter: 1rem !default; // Set gutter size
+
+$content-well-max-width: "none" !default; // Set the max-width of the content well
+
+$sm-start: ($xs-max + 1); // Generate sm breakpoint's min width
+$md-start: ($sm-max + 1); // Generate md breakpoint's min width
+$lg-start: ($md-max + 1); // Generate lg breakpoint's min width
+$xl-start: ($lg-max + 1); // Generate xl breakpoint's min width
+
+// Breakpoints
+// Create breakpoint range statements to be used in media queries
+$breakpoint-xs-only: "only screen and (max-width: #{$xs-max})"; // 0 -> xs-max range
+$breakpoint-sm-up: "only screen and (min-width: #{$sm-start})"; // sm-start -> up range
+$breakpoint-sm-only: "only screen and (min-width: #{$sm-start}) and (max-width: #{$sm-max})"; // sm-start -> sm-max range
+$breakpoint-md-up: "only screen and (min-width: #{$md-start})"; // md-start -> up range
+$breakpoint-md-only: "only screen and (min-width: #{$md-start}) and (max-width: #{$md-max})"; // md-start -> md-max range
+$breakpoint-lg-up: "only screen and (min-width: #{$lg-start})"; // lg-start -> up range
+$breakpoint-lg-only: "only screen and (min-width: #{$lg-start}) and (max-width: #{$lg-max})"; // lg-start -> lg-max range
+$breakpoint-xl-up: "only screen and (min-width: #{$xl-start})"; // xl-start -> up range
+
+$breakpoints-all: (
+  $breakpoint-xs-only,
+  $breakpoint-sm-up,
+  $breakpoint-sm-only,
+  $breakpoint-md-up,
+  $breakpoint-md-only,
+  $breakpoint-lg-up,
+  $breakpoint-lg-only,
+  $breakpoint-xl-up
+);
+$breakpoint-ups: (
+  $breakpoint-sm-up,
+  $breakpoint-md-up,
+  $breakpoint-lg-up,
+  $breakpoint-xl-up
+);
+$breakpoint-all-prefixes: (
+  "xs",
+  "xs-only",
+  "sm",
+  "sm-only",
+  "md",
+  "md-only",
+  "lg",
+  "lg-only",
+  "xl"
+);
+$breakpoint-up-prefixes: ("xs", "sm", "md", "lg", "xl");

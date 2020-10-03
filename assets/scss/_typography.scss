@@ -1,0 +1,39 @@
+// Font Weights
+$thin: 100;
+$light: 300;
+$regular: 400;
+$semibold: 600;
+$bold: 700;
+$ultra: 800;
+
+// Font Family
+$owswald-font-family: 'Oswald', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$poppins-font-family: 'Poppins', sans-serif !default;
+
+// Font
+$base-font-size: clamp(16px, 4vw, 22px) !default;
+$base-font-family: $poppins-font-family;
+$heading-font-family: $poppins-font-family;
+$base-font-color: $base_color !default;
+$heading-font-color: $base_color !default;
+
+body {
+  font-family: $base-font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $base-font-color;
+  font-size: $base-font-size;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $base-font-family;
+  font-weight: 800;
+}
+
+// font family
+.font-primary {
+  font-family: $base-font-family;
+}

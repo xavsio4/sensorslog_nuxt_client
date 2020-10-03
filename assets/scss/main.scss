@@ -1,0 +1,13 @@
+@charset 'UTF-8';
+
+@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap);
+
+// 1.Variables
+//
+// Weight: 1
+//
+// styleguide base.variables
+@import '_variables.scss';
+
+//2. import typography
+@import '_typography.scss';
