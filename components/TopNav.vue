@@ -5,61 +5,58 @@
     </b-navbar-brand>
 
     <b-navbar-nav>
-        <b-nav-item href="/" left>Home</b-nav-item>
-        <b-nav-item href="#faq" left>Faq</b-nav-item>
-        <b-nav-item href="/register" v-if="!authenticated" left>Register</b-nav-item>
-        
-      </b-navbar-nav>
-
- <b-collapse id="navbar-toggle-collapse" is-nav>
-    <b-navbar-nav class="ml-auto">
-        
-      <!-- Navbar dropdowns -->
-      <b-nav-item-dropdown text="Lang" right>
-        <b-dropdown-item href="#">EN</b-dropdown-item>
-        <b-dropdown-item href="#">ES</b-dropdown-item>
-        <b-dropdown-item href="#">RU</b-dropdown-item>
-        <b-dropdown-item href="#">FA</b-dropdown-item>
-      </b-nav-item-dropdown>
-      <b-nav-item class="btn btn-primary" href="/login" v-if="!authenticated" left>Login</b-nav-item>
-      <b-nav-item-dropdown  v-if="authenticated" text="User" >
-          <b-dropdown-item href="/dashboard">Dashboard</b-dropdown-item>
-        <b-dropdown-item href="/account">Account</b-dropdown-item>
-         <b-dropdown-item  v-on:click.native="logout()">Logout</b-dropdown-item>
-      </b-nav-item-dropdown>
+      <b-nav-item href="/" left>Home</b-nav-item>
+      <b-nav-item href="#faq" left>Faq</b-nav-item>
+      <b-nav-item href="/register" v-if="!authenticated" left
+        >Register</b-nav-item
+      >
     </b-navbar-nav>
+
+    <b-collapse id="navbar-toggle-collapse" is-nav>
+      <b-navbar-nav class="ml-auto">
+        <!-- Navbar dropdowns -->
+
+        <b-nav-item
+          class="btn btn-primary"
+          href="/login"
+          v-if="!authenticated"
+          left
+          >Login</b-nav-item
+        >
+        <b-nav-item-dropdown v-if="authenticated" text="User" left>
+          <b-dropdown-item href="/dashboard">Dashboard</b-dropdown-item>
+          <b-dropdown-item href="/account">Account</b-dropdown-item>
+          <b-dropdown-item v-on:click.native="logout()">Logout</b-dropdown-item>
+        </b-nav-item-dropdown>
+      </b-navbar-nav>
     </b-collapse>
 
-    <b-navbar-toggle target="navbar-toggle-collapse">
-    </b-navbar-toggle>
-
+    <b-navbar-toggle target="navbar-toggle-collapse"> </b-navbar-toggle>
   </b-navbar>
 </template>
 <script>
- import Logo from "./Logo";
+import Logo from './Logo'
 export default {
-   components: {
-       Logo
-   },
+  components: {
+    Logo,
+  },
   data() {
     return {
       authenticated: this.$auth.$state.loggedIn,
-    };
+    }
   }, //data
   computed: {
-    availableLocales () {
-        return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+    availableLocales() {
+      return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale)
     },
-
-    }, // /computed
+  }, // /computed
   methods: {
-      logout() {
-          this.authenticated = false;
-          this.$auth.logout();
-      }
-  } // /methods
+    logout() {
+      this.authenticated = false
+      this.$auth.logout()
+    },
+  }, // /methods
 }
 </script>
 <style>
-
 </style>
