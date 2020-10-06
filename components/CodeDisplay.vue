@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <b-container fluid>
     <figure>
       <div class="code-display">
         <code>{{ code }}</code>
@@ -9,7 +9,7 @@
       </div>
       <figcaption>{{ caption }}</figcaption>
     </figure>
-  </div>
+  </b-container>
 </template>
 <script>
 export default {
@@ -35,6 +35,7 @@ export default {
 .badge {
   float: right;
   margin: 3px;
+  display: block;
 }
 
 .badge:hover {
