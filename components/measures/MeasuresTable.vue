@@ -45,6 +45,7 @@ export default {
         { key: 'measure_value', sortable: true },
         { key: 'measure_unit' },
         { key: 'measure_type' },
+        { key: 'origin' },
         { key: 'created_at', sortable: true },
       ],
       perPage: 6,
@@ -52,10 +53,10 @@ export default {
     }
   },
   methods: {
-    loadData() {
+    async loadData() {
       // this.show=true;
       this.isBusy = true
-      this.$axios.get('/v1/measures').then((response) => {
+      await this.$axios.get('/v1/measures').then((response) => {
         this.measures = response.data.data
         this.show = false
         this.isBusy = false

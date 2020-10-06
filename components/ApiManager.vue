@@ -3,7 +3,9 @@
     <h4>Your api keys</h4>
     <b-button v-if="yourKey === ''" @click="genkey">Generate a key</b-button>
     <b-button v-if="yourKey != ''" @click="renewkey">Renew your key</b-button>
-    <p class="text-danger">Doing so will render your old key unoperational</p>
+    <p v-if="yourKey != ''" class="text-danger">
+      Doing so will render your previous key inoperative
+    </p>
     <b-overlay :show="show">
       <code-display
         :code="lakey"
@@ -13,10 +15,10 @@
       <h4>Endpoint example</h4>
       <code-display
         :code="
-          'Https://api.sensorslog.com/v1/measure/create?measure_type=temperature&measure_value=23.23' +
+          'Https://api.sensorslog.eu/v1/measure/create?measure_type=temperature&measure_value=23.23' +
           '\n\n' +
           '&measure_unit=C°' +
-          '&measure_origin=mkr1000&api_key=' +
+          '&origin=mkr1000&api_key=' +
           yourKey
         "
         caption="Endpoint to post a measure from your iot device"

@@ -1,12 +1,12 @@
 <template>
   <b-navbar toggleable="lg" type="light" variant="faded">
     <b-navbar-brand href="#">
-      <a href="/"><logo class="w-75"></logo></a>
+      <nuxt-link to="/"><logo class="w-75"></logo></nuxt-link>
     </b-navbar-brand>
 
     <b-navbar-nav>
       <b-nav-item href="/" left>Home</b-nav-item>
-      <b-nav-item href="#faq" left>Faq</b-nav-item>
+      <b-nav-item v-if="!authenticated" href="#faq" left>Faq</b-nav-item>
       <b-nav-item href="/register" v-if="!authenticated" left
         >Register</b-nav-item
       >

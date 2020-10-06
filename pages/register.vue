@@ -43,7 +43,7 @@
               id="password_label"
               label="Password"
               label-for="password"
-              description="Put something hard"
+              description="Put something hard. Min. 7 caracters"
             >
               <b-form-input
                 type="password"
@@ -64,7 +64,6 @@
               id="password_label"
               label="Password confirmation"
               label-for="password_confirmation"
-              description="Put something hard"
             >
               <b-form-input
                 type="password"
@@ -73,8 +72,16 @@
                 v-model="form.password_confirmation"
                 required
               />
+              <b-form-invalid-feedback :state="password_validation">
+                It's got to be the same as above
+              </b-form-invalid-feedback>
+              <b-form-valid-feedback :state="password_validation">
+                Yep...it looks like the one above.
+              </b-form-valid-feedback>
             </b-form-group>
-            <b-button type="submit">Register</b-button>
+            <b-button :disabled="!password_validation" type="submit"
+              >Register</b-button
+            >
             <div class="text-danger">
               <ul class="mt-3">
                 <li v-for="item in errors">{{ item[0] }}</li>
@@ -109,25 +116,32 @@ export default {
       show: false,
       mustVerifyEmail: false,
     }
+  }, //data
+  computed: {
+    password_validation() {
+      return this.form.password === this.form.password_confirmation
+    },
   },
   methods: {
     async submit(evt) {
-      // evt.preventDefault()
-      this.show = true
-      try {
-        await this.$axios.$post('auth/register', this.form)
+      if (this.password_validation) {
+        // evt.preventDefault()
+        this.show = true
+        try {
+          await this.$axios.$post('auth/register', this.form)
 
-        await this.$auth.loginWith('local', {
-          data: {
-            email: this.form.email,
-            password: this.form.password,
-          },
-        })
-        this.$router.push('/')
-      } catch (e) {
-        this.show = false
-        this.errors = e.response.data.errors
-      }
+          await this.$auth.loginWith('local', {
+            data: {
+              email: this.form.email,
+              password: this.form.password,
+            },
+          })
+          this.$router.push('/')
+        } catch (e) {
+          this.show = false
+          this.errors = e.response.data.errors
+        }
+      } //password validation condition
     },
   },
 }

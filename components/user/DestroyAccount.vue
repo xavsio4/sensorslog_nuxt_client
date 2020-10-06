@@ -30,10 +30,16 @@
               type="text"
               required
             ></b-form-input>
+            <b-form-invalid-feedback :state="valid_uname">
+              put your user name here..check on screen up left !
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback :state="valid_uname">
+              Ok, Goodbye and Godspeed
+            </b-form-valid-feedback>
           </b-form-group>
           <b-form-group>
             <b-alert variant="warning" :show="baduname">{{ errors }}</b-alert>
-            <b-button type="submit"
+            <b-button :disabled="!valid_uname" type="submit"
               >Adios and forget I was ever here !</b-button
             >
           </b-form-group>
@@ -54,6 +60,11 @@ export default {
       },
     }
   },
+  computed: {
+    valid_uname() {
+      return this.form.username === this.$auth.user.name
+    },
+  },
   methods: {
     async submit() {
       if (this.form.username == this.$auth.user.name) {
@@ -71,7 +82,7 @@ export default {
           })
       } else {
         this.baduname = true
-        this.errors = 'It looks like your username is not well introduced'
+        this.errors = 'It looks like your username is not well typed.'
       }
     },
   },
