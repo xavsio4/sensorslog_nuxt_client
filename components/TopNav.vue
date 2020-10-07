@@ -23,7 +23,7 @@
           left
           >Login</b-nav-item
         >
-        <b-nav-item-dropdown v-if="authenticated" text="User" left>
+        <b-nav-item-dropdown v-if="authenticated" text="User" right>
           <b-dropdown-item href="/dashboard">Dashboard</b-dropdown-item>
           <b-dropdown-item href="/account">Account</b-dropdown-item>
           <b-dropdown-item v-on:click.native="logout()">Logout</b-dropdown-item>

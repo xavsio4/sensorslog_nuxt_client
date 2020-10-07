@@ -10,11 +10,11 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'sensorslog-client',
+    title: 'sensorslog - log your iot\'s measurements',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'Free Web App/API to record your iot\'s measurements' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -47,11 +47,13 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
-   // '@nuxt/content',
+    // '@nuxt/content',
     //
     '@nuxtjs/auth',
     //
-    '@nuxtjs/fontawesome'
+    '@nuxtjs/fontawesome',
+    '@nuxtjs/pwa',
+    '@nuxtjs/color-mode',
   ],
 
   bootstrapVue: {
@@ -80,12 +82,12 @@ export default {
     strategies: {
       local: {
         url: 'http://localhost/laranuxt/oko/public/api',
-        client_id:  process.env.APP_CLIENT_ID,
-        client_secret:  process.env.APP_CLIENT_SECRET,
+        client_id: process.env.APP_CLIENT_ID,
+        client_secret: process.env.APP_CLIENT_SECRET,
         endpoints: {
           login: { url: '/auth/login', method: 'post', propertyName: 'access_token' },
-          logout: {url: '/auth/logout', method: 'post'},
-         user: { url: '/auth/user', method: 'get', propertyName: false}
+          logout: { url: '/auth/logout', method: 'post' },
+          user: { url: '/auth/user', method: 'get', propertyName: false }
         },
         token_key: 'access_token',
         tokenRequired: true,
@@ -99,7 +101,7 @@ export default {
     middleware: ['auth']
   },*/
 
-  
+
 
   // Content module configuration (https://go.nuxtjs.dev/content-config)
   content: {},
