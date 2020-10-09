@@ -1,4 +1,5 @@
 # sensorslog nuxt client
+![Sensorlog Png](static/sensorslog.png)
 
 This is a Nuxt project which layout is based on Bootstrap Vue. It is the actual client web app to sensorslog.com backend (Laravel). 
 
