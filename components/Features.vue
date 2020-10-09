@@ -11,9 +11,9 @@
             </b-col>
             <b-col>
                 <b-container>
-                    <h3><FontAwesomeIcon :icon="fas.faCoffee"/> Free Saas or Self Hosted (or a coffee)</h3>
-                    <p>You can download the backend and this frontend if you feel like hosting yourself</p>
-                    <p>Or just use sensorslog.eu to test your IOT project.</p>
+                    <h3><FontAwesomeIcon :icon="fas.faCoffee"/> Free Saas or Self Hosted</h3>
+                    <>You can download the backend and this frontend if you feel like hosting it yourself.
+                    Or just use sensorslog.com to test your IOT project.</p><p>Or use the whole project as a POC or a template for your next webapp</p>
                     
                 </b-container>
             </b-col>

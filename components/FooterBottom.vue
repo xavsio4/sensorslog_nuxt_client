@@ -1,6 +1,6 @@
 <template>
-  <section class="footer-dark fixed-bottom">
-    <b-container class="footer-bottom position-sticky fixed-bottom">
+  <section class="footer-dark">
+    <b-container class="footer-bottom">
       <b-row>
         <b-col class="float-left">
           © Fifteenpeas Labs / All rights reserved
@@ -23,6 +23,10 @@
   </section>
 </template>
 <style>
+.footer-bottom {
+  bottom: 0px 0px;
+}
+
 .footer-dark {
   background-color: black;
   color: #fff;

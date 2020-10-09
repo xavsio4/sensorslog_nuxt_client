@@ -1,5 +1,5 @@
 <template>
-  <b-card class="mx-auto p-1 w-50 mt-5 mb-5">
+  <div class="mx-auto p-1 w-50 mt-5 mb-5">
     <b-overlay :show="show">
       <div class="p-3">
         <h2>Login</h2>
@@ -65,7 +65,7 @@
         </b-form>
       </div>
     </b-overlay>
-  </b-card>
+  </div>
 </template>
 
 

@@ -1,6 +1,6 @@
 # sensorslog nuxt client
 
-This is a Nuxt project which layout is based on Bootstrap Vue. It is the actual client web app to sensorslog.eu backend (Laravel). 
+This is a Nuxt project which layout is based on Bootstrap Vue. It is the actual client web app to sensorslog.com backend (Laravel). 
 
 Sensorslog is a free platform to log your iot's project data into a database via a Rest Api endpoint. 
 
@@ -10,18 +10,25 @@ You can destroy your account and all your data anytime (privacy by design). The 
 
 To help with it, I've made the client source (nuxt), the backend source (Laravel) and an iot example (arduino mkr1000 C++) available through github so you can do whatever you want with it and build your own rest api platform.
 
+It is FAAAAAAAR from being perfect but it worked for me. Clearly, there's room for imporvements. I just hope it might help some to bootstrap a web app or to learn from it. What is important are the principles (the recipies of a technology). 
+
 Also, feel free to improve this service with pull requests/suggestions/...
 
 
-## Build Setup
+## Nuxt Build Setup
 
-Download or for this repository
+Download or fork this repository
 
 then
 
 ```bash
 # install dependencies
 $ npm install
+
+# Then you have to fill .env values. 
+Most important thing is the base api_url you are going to use. You might have to update the nuxt.config.js file in order for the whole url endpoint to match. For example: your api url might be https://api.yourdomain.com. So, obviously, it is better to install the backend first and test it via https://www.postman.com/ for example.
+
+And in your nuxt.config.js /auth/login. So it means your whole url should be https://api.yourdomain.com/auth/login ...you feel me... 
 
 # serve with hot reload at localhost:3000
 $ npm run dev
@@ -34,7 +41,7 @@ $ npm run start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+For detailed explanation on how things work for Nuxt, check out [Nuxt.js docs](https://nuxtjs.org).
 
 
 ## Aknowledgments & credits
@@ -47,5 +54,20 @@ https://bootstrap-vue.org/
 
 Used on the registration screen for password strength
 https://github.com/apertureless/vue-password-strength-meter
+
+Used for dark mode
+https://color-mode.nuxtjs.org/
+
+Used this to animate the logo
+https://maxwellito.github.io/vivus-instant/
+
+Background patterns 
+http://www.heropatterns.com/
+
+For the "back to top" feature (in layout/default.vue)
+https://github.com/caiofsouza/vue-backtotop
+
+For cookies consent  and gdpr i used this
+https://www.npmjs.com/package/nuxt-cookie-control
 
 

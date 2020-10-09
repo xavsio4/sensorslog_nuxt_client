@@ -6,7 +6,7 @@
 
     <b-navbar-nav>
       <b-nav-item href="/" left>Home</b-nav-item>
-      <b-nav-item v-if="!authenticated" href="#faq" left>Faq</b-nav-item>
+     
       <b-nav-item href="/register" v-if="!authenticated" left
         >Register</b-nav-item
       >
@@ -17,6 +17,7 @@
         <!-- Navbar dropdowns -->
 
         <b-nav-item
+        id="btn-login"
           class="btn btn-primary"
           href="/login"
           v-if="!authenticated"
@@ -28,6 +29,9 @@
           <b-dropdown-item href="/account">Account</b-dropdown-item>
           <b-dropdown-item v-on:click.native="logout()">Logout</b-dropdown-item>
         </b-nav-item-dropdown>
+      
+
+      <b-nav-item><color-mode></color-mode></b-nav-item>
       </b-navbar-nav>
     </b-collapse>
 
@@ -36,6 +40,7 @@
 </template>
 <script>
 import Logo from './Logo'
+import ColorMode from '~/components/ColorMode'
 export default {
   components: {
     Logo,
@@ -59,4 +64,8 @@ export default {
 }
 </script>
 <style>
+#btn-login {
+  margin-top:28px;
+max-height: 50px
+}
 </style>

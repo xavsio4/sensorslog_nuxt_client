@@ -4,7 +4,7 @@
       <div>
         <div class="" style="transform: translate3d(0px, 0px, 0px); opacity: 1">
           <h1 class="page-header-title">
-            A free backend to log your IOT's projects measures.<span
+            A free backend to log your IOT's projects Measurement.<span
               class="text-main"
             ></span>
           </h1>

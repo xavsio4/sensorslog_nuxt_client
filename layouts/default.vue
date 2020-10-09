@@ -1,20 +1,28 @@
 <template>
   <div>
     <top-nav></top-nav>
-
     <Nuxt />
-    <color-mode></color-mode>
-    <color-mode-icon></color-mode-icon>
+    
+   
     <footer-site></footer-site>
     <footer-bottom></footer-bottom>
+   <!-- <CookieControl>
+  <template v-slot:bar>
+    <h3>Yummy cookies</h3>
+    <p>Cookies are only used to support this website functionalities. They are not used to collect, share or 
+      monetize your personal data. 
+    </p>
+  </template>
+</CookieControl> -->
+<back-to-top></back-to-top>
   </div>
 </template>
 <script>
 import TopNav from '~/components/TopNav'
 import FooterBottom from '~/components/FooterBottom'
 import FooterSite from '~/components/FooterSite'
-import ColorMode from '~/components/ColorMode'
-import ColorModeIcon from '~/components/ColorModeIcon'
+//import ColorModeIcon from '~/components/ColorModeIcon'
+import BackToTop from '~/components/BackToTop'
 
 export default {
   scrollToTop: true,
@@ -22,8 +30,12 @@ export default {
     TopNav,
     FooterBottom,
     FooterSite,
-    ColorMode,
-    ColorModeIcon,
+    //ColorModeIcon,
+    BackToTop,
   },
 }
 </script>
+<style scoped>
+.btn-to-top {
+}
+</style>

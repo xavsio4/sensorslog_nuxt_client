@@ -54,6 +54,7 @@ export default {
     '@nuxtjs/fontawesome',
     '@nuxtjs/pwa',
     '@nuxtjs/color-mode',
+    'nuxt-cookie-control'
   ],
 
   bootstrapVue: {
@@ -81,7 +82,7 @@ export default {
     resetOnError: true,*/
     strategies: {
       local: {
-        url: 'http://localhost/laranuxt/oko/public/api',
+        url: process.env.API_URL,
         client_id: process.env.APP_CLIENT_ID,
         client_secret: process.env.APP_CLIENT_SECRET,
         endpoints: {

@@ -5,7 +5,7 @@
             <b-col>
                 <h1>Let's give it a try</h1>
             
-                <b-btn size="lg" variant="outline-dark">Get an API Key.</b-btn>
+                <nuxt-link to="/login"  class="btn btn-lg btn-outline-success">Get an API Key.</nuxt-link>
             </b-col>
         </b-row>
     </b-container>
