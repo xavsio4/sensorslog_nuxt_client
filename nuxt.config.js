@@ -7,6 +7,8 @@ export default {
     serverUrl: process.env.API_URL
   },*/
 
+  ssr: false,
+
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -29,6 +31,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    { src: '~/plugins/vue-pwd-meter.js', mode: 'client' },
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
