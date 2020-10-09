@@ -1,6 +1,6 @@
 <template>
   <object
-    v-if="colormode === 'light'"
+    v-if="colormode == 'light'"
     class="logo"
     type="image/svg+xml"
     data="/images/sensorlog.svg"
@@ -9,7 +9,14 @@
   </object>
 
   <object
-    v-else="colormode === 'dark'"
+    v-else="colormode == 'dark'"
+    class="logo"
+    type="image/svg+xml"
+    data="/images/sensorslog-light_animated.svg"
+  ></object>
+
+  <object
+    v-else=""
     class="logo"
     type="image/svg+xml"
     data="/images/sensorslog-light_animated.svg"
