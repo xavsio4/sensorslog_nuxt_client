@@ -42,6 +42,9 @@ $ npm run start
 $ npm run generate
 ```
 
+# Then you will have to deploy in your hosting environment
+It means that you have to update the .env file with the client ID and SECRET declared on your Laravel Backend (so...yes, you'd better make sure your backend works beforehand)
+
 For detailed explanation on how things work for Nuxt, check out [Nuxt.js docs](https://nuxtjs.org).
 
 
