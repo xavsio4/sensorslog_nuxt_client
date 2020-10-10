@@ -7,7 +7,7 @@ export default {
     serverUrl: process.env.API_URL
   },*/
 
-  ssr: false,
+  ssr: false, //for spa mode
 
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
