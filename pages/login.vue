@@ -47,7 +47,7 @@
             </b-form-checkbox>
 
             <div class="mb-2 mt-3">
-              <a href="#"> Forgot your password? </a>
+              <a href="/PasswordForgot"> Forgot your password? </a>
             </div>
             <div class="mb-2 mt-3">
               <nuxt-link to="/register">

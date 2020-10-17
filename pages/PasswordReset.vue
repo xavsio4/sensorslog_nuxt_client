@@ -1,30 +1,11 @@
 <template>
   <section class="pt-5">
     <b-row>
-      <b-col class="bg-circuit text-black">
-        <b-container class="p-5">
-          <h2>Register</h2>
-          <p>Fill this form and that's it.</p>
-        </b-container>
-      </b-col>
       <b-col class="pl-5 pr-5 pt-1 mb-5 mt-5">
-        <h4>Create an account that you can destroy any time.</h4>
+        <h4>Password Reset</h4>
         <b-overlay :show="show">
           <b-form @submit.prevent="submit" action="#" method="POST">
-            <b-form-group
-              id="name_label"
-              label="How do you want to be named:"
-              label-for="name"
-              description="it is nice to be named in your dashboard"
-            >
-              <b-form-input
-                aria-label="Name"
-                type="text"
-                name="name"
-                v-model="form.name"
-                required
-              />
-            </b-form-group>
+              <input type="hidden" name="token" />
             <b-form-group
               id="name_label"
               label="your email"
@@ -107,7 +88,6 @@ export default {
   data() {
     return {
       form: {
-        name: '',
         email: '',
         password: '',
         password_confirmation: '',
@@ -128,15 +108,15 @@ export default {
         // evt.preventDefault()
         this.show = true
         try {
-          await this.$axios.$post('auth/register', this.form)
+          await this.$axios.$post('auth/passwordreset', this.form)
           //.catch(e=>{console.log(e)})
 
-          await this.$auth.loginWith('local', {
+         /* await this.$auth.loginWith('local', {
             data: {
               email: this.form.email,
               password: this.form.password,
             },
-          })
+          }) */
           this.$router.push('/')
         } catch (e) {
           this.show = false

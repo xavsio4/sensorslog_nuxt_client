@@ -12,6 +12,7 @@
 <script>
 import CodeDisplay from '@/components/CodeDisplay'
 export default {
+  auth: 'guest',
   components: {
     CodeDisplay,
   },

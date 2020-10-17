@@ -23,7 +23,7 @@
         :fields="fields"
         :per-page="perPage"
         :current-page="currentPage"
-        small
+        small :dark="colormode == 'dark'"
       >
       </b-table>
     </b-overlay>
@@ -70,6 +70,18 @@ export default {
     rows() {
       return this.measures.length
     },
+    colormode() {
+      if (this.$colorMode.preference) {
+        if (
+          this.$colorMode.preference === 'system' ||
+          this.$colorMode.preference === 'dark'
+        )
+          return 'dark'
+      }
+      return 'light'
+    },
   },
 }
 </script>
+<style>
+</style>

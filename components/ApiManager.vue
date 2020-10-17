@@ -15,10 +15,10 @@
       <h4>Endpoint example</h4>
       <code-display
         :code="
-          'Https://api.sensorslog.eu/v1/measure/create?measure_type=temperature&measure_value=23.23' +
+          'https://api.sensorslog.com/api/v1/measure/create?measure_type=Temp&measure_value=19' +
           '\n\n' +
           '&measure_unit=C°' +
-          '&origin=mkr1000&api_key=' +
+          '&origin=mkr1000&key=' +
           yourKey
         "
         caption="Endpoint to post a measure from your iot device"

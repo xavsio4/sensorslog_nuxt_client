@@ -55,7 +55,6 @@ export default {
     '@nuxtjs/auth',
     //
     '@nuxtjs/fontawesome',
-    '@nuxtjs/pwa',
     '@nuxtjs/color-mode',
     'nuxt-cookie-control'
   ],

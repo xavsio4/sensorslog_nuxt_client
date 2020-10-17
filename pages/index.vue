@@ -6,15 +6,16 @@
      <section class="mb-5">
        <a name="faq"></a>
        <b-row>
-         <b-col>
+         <b-col class="bg-circuit">
            <b-container>
-           <faq></faq>
+             <b-container class="p-5">
+             <h1 class="page-header-title text-black">FAQ</h1>
+           </b-container>
+           
            </b-container>
          </b-col>
-         <b-col class="bg-circuit">
-           <b-container class="p-5">
-             <h1 class="page-header-title">FAQ</h1>
-           </b-container>
+         <b-col >
+           <faq></faq>
          </b-col>
        </b-row>
      </section>
@@ -31,6 +32,7 @@ import Faq from '~/components/FaqPlain'
 import Features from '~/components/Features'
 import Cta from '~/components/Cta'
 export default {
+  auth: 'guest',
   components: {
     Hero,Faq,Features,Cta
   }
