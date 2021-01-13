@@ -12,11 +12,11 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'sensorslog - log your iot\'s measurements',
+    title: 'sensorslog - log your iot\'s measurements. A Free iot backend',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Free Web App/API to record your iot\'s measurements' }
+      { hid: 'description', name: 'description', content: 'Free Web App/API to record your iot\'s measurements. A Free iot backend' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

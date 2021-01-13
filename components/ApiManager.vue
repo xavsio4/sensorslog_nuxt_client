@@ -13,6 +13,7 @@
       />
 
       <h4>Endpoint example</h4>
+      <p>You must use the verb POST. The api key and the measure_value are required.</p>
       <code-display
         :code="
           'https://api.sensorslog.com/api/v1/measure/create?measure_type=Temp&measure_value=19' +
@@ -24,6 +25,9 @@
         caption="Endpoint to post a measure from your iot device"
       >
       </code-display>
+      <code-display caption="Try this curl command" :code="'curl -d '+ '&quot;' +'measure_type=Temp&measure_value=19&measure_unit=C°&origin=mkr1000&key='+ yourKey+ '&quot;'
+      + ' -H '+ '&quot;' +'Content-Type: application/x-www-form-urlencoded' + '&quot;' 
+      + ' -X POST https://api.sensorslog.com/api/v1/measure/create'"></code-display>
       <nuxt-link to="/doc">Learn more on how it works</nuxt-link>
     </b-overlay>
   </div>
