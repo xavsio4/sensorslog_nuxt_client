@@ -32,6 +32,7 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     { src: '~/plugins/vue-pwd-meter.js', mode: 'client' },
+     {src: '~/plugins/filters.js', mode: 'client'},
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -56,7 +57,8 @@ export default {
     //
     '@nuxtjs/fontawesome',
     '@nuxtjs/color-mode',
-    'nuxt-cookie-control'
+    'nuxt-cookie-control',
+    '@nuxtjs/moment'
   ],
 
   bootstrapVue: {
