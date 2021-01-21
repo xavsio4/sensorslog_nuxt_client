@@ -8,7 +8,7 @@
             <h4 class="footer-block-heading">About</h4>
             <div class="footer-block-content">
               <div class="">
-                Sensorslog is an as is project provided freely and from which
+                Sensorslog is an "as is" project provided freely and from which
                 you can vanish without a trace. There is no commercial usage of
                 the data you log in. In case of, you can hire me to help you on
                 your web project.
@@ -20,7 +20,12 @@
         </div>
         <!-- /.col -->
 
-        <div class="col-sm-4 col-lg-2"></div>
+        <div class="col-sm-4 col-lg-2">
+          <ul><li><nuxt-link to="releases">Release Notes</nuxt-link></li>
+          <li><nuxt-link to="doc">Documentation</nuxt-link></li>
+          <li><nuxt-link to="privacy">Privacy and Terms of use</nuxt-link></li></ul>
+          
+        </div>
         <!-- /.col -->
 
         <div class="col-sm-4 col-lg-2"></div>

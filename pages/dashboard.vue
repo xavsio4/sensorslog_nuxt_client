@@ -10,14 +10,15 @@
       </p>
       <b-row>
         <b-col>
-          <b-card title="Latest Value" style="max-width: 16rem">
+          <b-card title="Latest Value" class="card-widget">
             <b-card-text
               ><h2>{{ latest.measure_value }} {{ latest.measure_unit }}</h2>
-              <div class="latest_time">{{ latest.created_at | formatTimestampFr }}</div>
+              <div class="latest_time">
+                {{ latest.created_at | formatTimestampFr }}
+              </div>
               <div>
-                
                 <b-badge>{{ latest.measure_type }}</b-badge>
-                <b-badge variant='info'>{{ latest.origin }}</b-badge>
+                <b-badge variant="info">{{ latest.origin }}</b-badge>
               </div></b-card-text
             >
           </b-card>
@@ -25,7 +26,9 @@
       </b-row>
       <b-row>
         <b-col>
-          <measures-table></measures-table>
+          <b-card title="Your measures"
+            ><measures-table></measures-table
+          ></b-card>
         </b-col>
       </b-row>
     </div>
@@ -42,6 +45,7 @@ export default {
   data() {
     return {
       latest: '',
+      widget_ov_show: true,
     }
   },
   methods: {
@@ -57,7 +61,15 @@ export default {
 }
 </script>
 <style>
+.card {
+  margin:4px;
+}
+
+.card-widget {
+  max-width: 16rem;
+}
+
 .latest_time {
-  margin:-14px 0 4px 0;
+  margin: -14px 0 4px 0;
 }
 </style>

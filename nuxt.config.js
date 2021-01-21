@@ -1,6 +1,6 @@
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
-  target: 'static',
+  target: 'server',
   /*server: {
     port: process.env.PORT,
     host: process.env.HOST,
@@ -51,7 +51,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
-    // '@nuxt/content',
+    '@nuxt/content',
     //
     '@nuxtjs/auth',
     //

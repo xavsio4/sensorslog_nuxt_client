@@ -10,9 +10,8 @@
           </h1>
           <br /><br />
           <h2>
-            <a class="btn btn-lg btn-primary stretched-link" href=""
-              >Give it a try</a
-            >
+            <nuxt-link class="btn btn-lg btn-primary stretched-link" to="/register"
+              >Give it a try</nuxt-link>
           </h2>
         </div>
       </div>
