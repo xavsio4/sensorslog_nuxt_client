@@ -21,9 +21,9 @@
         <!-- /.col -->
 
         <div class="col-sm-4 col-lg-2">
-          <ul><li><nuxt-link to="releases">Release Notes</nuxt-link></li>
-          <li><nuxt-link to="doc">Documentation</nuxt-link></li>
-          <li><nuxt-link to="privacy">Privacy and Terms of use</nuxt-link></li></ul>
+          <ul><li><nuxt-link to="/releases">Release Notes</nuxt-link></li>
+          <li><nuxt-link to="/doc">Documentation</nuxt-link></li>
+          <li><nuxt-link to="/privacy">Privacy and Terms of use</nuxt-link></li></ul>
           
         </div>
         <!-- /.col -->

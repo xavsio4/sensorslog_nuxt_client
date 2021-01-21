@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid class="docSample">
+  <b-container fluid>
     <h1>Documentation</h1>
     <p>
       Sensorslog.com is a free service that can store the values sent through a
