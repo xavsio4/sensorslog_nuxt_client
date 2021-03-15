@@ -79,6 +79,7 @@
                 Yep...it looks like the one above.
               </b-form-valid-feedback>
             </b-form-group>
+            <b-form-group><recaptcha /></b-form-group>
             <b-button :disabled="!password_validation" type="submit"
               >Register</b-button
             >
@@ -110,6 +111,7 @@ export default {
         name: '',
         email: '',
         password: '',
+        token: '',
         password_confirmation: '',
       },
       errors: '',
@@ -128,6 +130,10 @@ export default {
         // evt.preventDefault()
         this.show = true
         try {
+          const token = await this.$recaptcha.execute('login')
+          console.log('ReCaptcha token:', token)
+          this.form.token = token
+
           await this.$axios.$post('auth/register', this.form)
           //.catch(e=>{console.log(e)})
 
@@ -145,7 +151,16 @@ export default {
       } //password validation condition
     },
   },
+  async mounted() {
+    try {
+      await this.$recaptcha.init()
+    } catch (e) {
+      console.error(e)
+    }
+  },
+  beforeDestroy() {
+    this.$recaptcha.destroy()
+  },
 }
 </script>
-<style>
-</style>
+<style></style>

@@ -74,6 +74,9 @@ https://github.com/caiofsouza/vue-backtotop
 For cookies consent and gdpr i used this
 https://www.npmjs.com/package/nuxt-cookie-control
 
+Nuxt toast wrapper using this
+https://github.com/shakee93/vue-toasted
+
 The Arduino C++ project
 https://github.com/xavsio4/arduino_mkr1000_temp_log
 

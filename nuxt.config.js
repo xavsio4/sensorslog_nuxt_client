@@ -58,11 +58,17 @@ export default {
     '@nuxtjs/fontawesome',
     '@nuxtjs/color-mode',
     'nuxt-cookie-control',
-    '@nuxtjs/moment'
+    '@nuxtjs/moment',
+    '@nuxtjs/toast',
+    '@nuxtjs/recaptcha'
   ],
 
   bootstrapVue: {
     icons: true // Install the IconsPlugin (in addition to BootStrapVue plugin
+  },
+
+  toast: {
+    position: 'bottom-right',
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -106,12 +112,49 @@ export default {
     middleware: ['auth']
   },*/
 
+   /**
+   * Loading Setup
+   */
+  loading: {
+    name: 'chasing-dots',
+    color: '#ff5638',
+    background: 'white',
+    height: '4px'
+  },// /loading
+  /**
+   * Page Transition
+   */
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+    beforeEnter (el) {
+      console.log('Before enter...');
+    }
+  },
 
+  layoutTransition: {
+    name: 'layout',
+    mode: 'out-in'
+  },
 
   // Content module configuration (https://go.nuxtjs.dev/content-config)
   content: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+  },
+
+  recaptcha: {
+    hideBadge: false, // Hide badge element (v3 & v2 via size=invisible)
+    language: 'en',   // Recaptcha language (v2)
+    siteKey: process.env.RECAPTCHA_KEY,    // Site key for requests
+    version: 3,     // Version
+    size: 'compact'        // Size: 'compact', 'normal', 'invisible' (v2)
+  },
+  publicRuntimeConfig: {
+    recaptcha: {
+      /* reCAPTCHA options */
+      siteKey: process.env.RECAPTCHA_KEY // for example
+    }
   }
 }

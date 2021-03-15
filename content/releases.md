@@ -1,5 +1,14 @@
 # Release notes
 
+### V0.075 added delete button on dashboard
+
+**9/03/2021**
+
+- added delete button
+- added detail view
+- enhanced pagination
+- added @nuxt/toast module
+
 ### V0.07 Added "get" endpoint
 
 **21/01/2021**

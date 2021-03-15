@@ -9,26 +9,27 @@
         <nuxt-link to="/account">account</nuxt-link> page.
       </p>
       <b-row>
-        <b-col>
+        
+        <b-col v-for="(item,index) in latest" :index="index">
           <b-card title="Latest Value" class="card-widget">
             <b-card-text
-              ><h2>{{ latest.measure_value }} {{ latest.measure_unit }}</h2>
+              ><h2>{{ item.measure_value }} {{ item.measure_unit }}</h2>
               <div class="latest_time">
-                {{ latest.created_at | formatTimestampFr }}
+                {{ item.created_at | formatTimestampFr }}
               </div>
               <div>
-                <b-badge>{{ latest.measure_type }}</b-badge>
-                <b-badge variant="info">{{ latest.origin }}</b-badge>
-              </div></b-card-text
-            >
+                <b-badge>{{ item.measure_type }}</b-badge>
+                <b-badge variant="info">{{ item.origin }}</b-badge>
+              </div>
+              </b-card-text>
           </b-card>
         </b-col>
       </b-row>
       <b-row>
         <b-col>
-          <b-card title="Your measures"
-            ><measures-table></measures-table
-          ></b-card>
+          <b-card title="Your measures">
+            <measures-table></measures-table>
+          </b-card>
         </b-col>
       </b-row>
     </div>
@@ -45,24 +46,33 @@ export default {
   data() {
     return {
       latest: '',
+      types:[],
       widget_ov_show: true,
     }
   },
+  
   methods: {
+
     async getLatest() {
       await this.$axios.get('/v1/measure/latest').then((response) => {
         this.latest = response.data.data
       })
     },
+    async getTypes() {
+await this.$axios.get('/v1/measure/types').then((response) => {
+        this.types = response.data.data
+      })
+    }
   },
   mounted() {
+   // this.getTypes()
     this.getLatest()
   },
 }
 </script>
 <style>
 .card {
-  margin:4px;
+  margin: 4px;
 }
 
 .card-widget {
