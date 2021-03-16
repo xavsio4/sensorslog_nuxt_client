@@ -1,5 +1,17 @@
 # Release notes
 
+### V0.08 added delete button on dashboard
+
+- added several options to clean your data
+
+  - delete all
+  - delete selected
+  - delete all but selected
+  - delete by filter
+  - individual delete
+
+- Multiple measure types for latest value widget
+
 ### V0.075 added delete button on dashboard
 
 **9/03/2021**

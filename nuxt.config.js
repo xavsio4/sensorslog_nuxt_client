@@ -115,12 +115,18 @@ export default {
    /**
    * Loading Setup
    */
+  // customize loading bar
   loading: {
-    name: 'chasing-dots',
-    color: '#ff5638',
-    background: 'white',
-    height: '4px'
-  },// /loading
+    color: 'blue',
+    height: '5px'
+  },
+
+  // loading indicator
+  loadingIndicator: {
+    name: 'circle',
+    color: '#3B8070',
+    background: 'white'
+  },
   /**
    * Page Transition
    */

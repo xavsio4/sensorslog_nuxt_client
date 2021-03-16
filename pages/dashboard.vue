@@ -8,10 +8,10 @@
         get your api key in the
         <nuxt-link to="/account">account</nuxt-link> page.
       </p>
+      <b-row><b-col><h3>Latest(s) Value(s)</h3></b-col></b-row>
       <b-row>
-        
         <b-col v-for="(item,index) in latest" :index="index">
-          <b-card title="Latest Value" class="card-widget">
+          <b-card class="card-widget">
             <b-card-text
               ><h2>{{ item.measure_value }} {{ item.measure_unit }}</h2>
               <div class="latest_time">
