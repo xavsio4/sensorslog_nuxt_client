@@ -16,9 +16,11 @@ Vue.filter('formatTimestamp', (val) => {
 
 Vue.filter('formatTimestampFr', (val) => {
   if (val) {
-    return moment(val, 'YYYY/MM/DD HH:mm:ss').format('DD/MM/YYYY HH:mm:ss')
+    return moment(val).format('DD/MM/YYYY H:mm:ss')
   }
 })
+
+
 
 Vue.filter('year', (val) => {
   if (val) {

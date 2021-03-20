@@ -60,7 +60,8 @@ export default {
     'nuxt-cookie-control',
     '@nuxtjs/moment',
     '@nuxtjs/toast',
-    '@nuxtjs/recaptcha'
+    '@nuxtjs/recaptcha',
+    '@nuxtjs/dayjs'
   ],
 
   bootstrapVue: {

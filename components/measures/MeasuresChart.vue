@@ -2,7 +2,6 @@
 import { Line, mixins } from "vue-chartjs";
 import chartjsPluginAnnotation from "chartjs-plugin-annotation";
 import chartjsPluginDataLabels from "chartjs-plugin-datalabels";
-import moment from "moment";
 
 const { reactiveProp } = mixins;
 
@@ -37,16 +36,14 @@ export default {
     this.gradient2.addColorStop(0.5, "rgba(0, 231, 255, 0.25)");
     this.gradient2.addColorStop(1, "rgba(0, 231, 255, 0)");
 
-    this.addPlugin(chartjsPluginAnnotation);
-    this.addPlugin(chartjsPluginDataLabels);
 
     this.renderChart(
       //data
       {
-        labels: this.chartData.labels,
+        labels: this.chartData.measure_type,
         datasets: [
           {
-            label: "HeartBeat Rate",
+            label: "Sensorslog",
             datalabels: {
               color: function(context) {
                 var index = context.dataIndex;
@@ -64,38 +61,13 @@ export default {
               }
             }, // datalabels
             backgroundColor: this.gradient,
-            data: this.chartData.datasets,
+            data: this.chartData.measure_value,
             // backgroundColor: "transparent",
             borderColor: "rgba(1, 116, 188, 0.50)",
             pointBackgroundColor: "rgba(171, 71, 188, 1)"
           },
           //idea for treatment instead of annotation
-          {
-            // type: "line",
-            label: "Changement de traitement",
-            datalabels: {
-              //datasetIndex:0,
-              color: "#3622EB",
-              align: "top",
-              offset: 10,
-              formatter: function(value, context) {
-                return "CT " + context.dataIndex;
-              },
-              font: {
-                weight: "bold"
-              }
-            }, // datalabels
-            borderColor: "transparent",
-            backgroundColor: "#8F13FE",
-            pointStyle: "rectRot",
-            pointBackgroundColor: "#8F13FE",
-            pointBorderColor: "#8F13FE",
-            pointBorderWidth: 10,
-            borderWidth: 2,
-            spanGaps: true,
-            fill: false,
-            data: [30, NaN, NaN, NaN, 30, NaN, NaN]
-          }
+         
         ]
       },
       //options
@@ -130,28 +102,7 @@ export default {
             }
           ]
         }, // scales,
-        annotation: {
-          annotations: [
-            {
-              drawTime: "afterDraw", // overrides annotation.drawTime if set
-              // id: "a-limit-1", // optional
-              type: "line",
-              mode: "horizontal",
-              scaleID: "y-axis-0",
-              value: 100,
-
-              borderColor: "red",
-              borderWidth: 1,
-              label: {
-                position: "right",
-                xAdjust: 10,
-                backgroundColor: "#FF6659",
-                content: "100",
-                enabled: true
-              }
-            }
-          ]
-        } // annotation
+     
       } // options
     );
   } //mounted

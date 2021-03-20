@@ -14,6 +14,7 @@
             Download Data
           </download-csv>
         </b-dropdown-item>
+        <!--<b-dropdown-item @click="refresh"> Refresh </b-dropdown-item>-->
         <b-dropdown-item
           v-b-modal.confirmDestroySelected
           :disabled="selecteds.length === 0 ? true : false"
@@ -225,7 +226,23 @@ export default {
       selecteds: [],
     }
   },
+  asyncData({ axios }) {
+    //
+  },
   methods: {
+    refresh() {
+      this.$nuxt.refresh()
+    },
+    getAvg(arraydata) {
+      const total = arraydata.reduce((acc, c) => acc + c, 0)
+      return total / arraydata.length
+    },
+    getMax(arraydata) {
+      return Math.max(...arraydata)
+    },
+    getMin(arraydata) {
+      return Math.min(...arraydata)
+    },
     async loadData() {
       // this.show=true;
       this.isBusy = true
@@ -254,9 +271,7 @@ export default {
     async destroyall() {
       this.isBusy = true
       this.show = true
-      await this.$axios.delete(`/v1/measure/destroyall`)
-      .then((response) => {
-        
+      await this.$axios.delete(`/v1/measure/destroyall`).then((response) => {
         this.filteredItems = []
         this.measures = []
         this.selectVal.measure_type = undefined

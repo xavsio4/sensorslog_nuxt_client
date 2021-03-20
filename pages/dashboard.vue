@@ -15,7 +15,7 @@
             <b-card-text
               ><h2>{{ item.measure_value }} {{ item.measure_unit }}</h2>
               <div class="latest_time">
-                {{ item.created_at | formatTimestampFr }}
+                {{ formatDate(item.created_at) }}
               </div>
               <div>
                 <b-badge>{{ item.measure_type }}</b-badge>
@@ -50,9 +50,14 @@ export default {
       widget_ov_show: true,
     }
   },
+  computed: {
+    
+  },
   
   methods: {
-
+    formatDate(value) {
+      return  this.$moment(value).format('DD/MM/YYYY H:mm:s')
+    },
     async getLatest() {
       await this.$axios.get('/v1/measure/latest').then((response) => {
         this.latest = response.data.data
