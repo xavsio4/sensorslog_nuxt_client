@@ -12,10 +12,16 @@ export default {
       responsive: true,
         maintainAspectRatio: false,
         borderColor: 'rgba(47, 152, 208, 0.2)',
-        backgroundColor: ['rgba(47, 152, 208, 0.2)'],
+        //backgroundColor: ['rgba(47, 152, 208, 0.2)'],
         legend: {
             display: true,
         },
+        elements: {
+          line: { fill: false },
+                    point:{
+                        radius: 0
+                    }
+                },
       /*  tooltips: {
             callbacks: {
                 label: function(tooltipItem, data) {
@@ -32,12 +38,14 @@ export default {
             }]*/
             xAxes: [{
                 type: 'time',
-               /*  time: {
-                    unit: 'hour',
-                    round:true,
-                    minUnit:'minute',
-                    displayFormats:'h:mm'
-                }*/
+               time: {
+                  parser: 'YYYY-MM-DDTHH:mm',
+                  unit: 'day',
+                  displayFormats: {
+                     day: 'DD/MM/YY hh:mm',
+                  },
+                  
+               },
             }]
         } 
       }

@@ -61,7 +61,8 @@ export default {
     '@nuxtjs/moment',
     '@nuxtjs/toast',
     '@nuxtjs/recaptcha',
-    '@nuxtjs/dayjs'
+    '@nuxtjs/dayjs',
+    '@nuxtjs/moment'
   ],
 
   bootstrapVue: {

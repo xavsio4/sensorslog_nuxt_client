@@ -35,45 +35,18 @@
         <b-col>
           <b-card>
             <b-button size="sm" @click="fillDataLine()">Last 24h</b-button>
-            <b-button size="sm" @click="fillDataScatter()">Last 5 days</b-button>
-            <b-button size="sm" @click="fillData()">Last month</b-button>
+            <b-button size="sm" @click="fillDataScatter()"
+              >Last 5 days</b-button
+            >
             <b-button size="sm" @click="fillData()">Current month</b-button>
           </b-card>
           <b-card>
             <line-chart :chart-data="datacollection"></line-chart>
           </b-card>
         </b-col>
-       <!-- <b-col>
-          <b-card title="Customize the chart">
-            <b-form>
-              <b-form-group>
-                <label><strong>Available measure type(s)</strong></label>
-                <ul class="list-unstyled">
-                  <li v-for="item in options['measure_type']">
-                    <b-form-checkbox
-                      :name="item"
-                      value="accepted"
-                      unchecked-value="hidden"
-                    >
-                      {{ item }}</b-form-checkbox
-                    >
-                  </li>
-                </ul>
-              </b-form-group>
-              <b-form-group>
-                <label><strong>Available origine(s) of measures</strong></label>
-                <ul class="list-unstyled">
-                  <li v-for="item in options['origin']">
-                    {{ item }}
-                  </li>
-                </ul>
-              </b-form-group>
-            </b-form>
-          </b-card>
-        </b-col>-->
         <b-col>
-            {{watcheddata}}
-            <scatter-chart :chart-data="chartd"/>
+          {{ watcheddata }}
+          <scatter-chart :chart-data="chartd" />
         </b-col>
       </b-row>
     </b-overlay>
@@ -89,44 +62,52 @@ export default {
   components: {
     LineChart,
     Clock,
-    ScatterChart
-  },
-  asyncData() {
-    // help
+    ScatterChart,
   },
   data() {
     return {
-        chartd: {
-        datasets: [{
+      chartd: {
+        datasets: [
+          {
             label: 'Scatter Dataset',
             borderColor: 'rgba(47, 152, 208, 0.2)',
-            backgroundColor: [
-                                'rgba(47, 152, 208, 0.2)',
-                            ],
-            data: [{
+            backgroundColor: ['rgba(47, 152, 208, 0.2)'],
+            data: [
+              {
                 x: -10,
-                y: 0
-            }, {
+                y: 0,
+              },
+              {
                 x: 0,
-                y: 10
-            }, {
+                y: 10,
+              },
+              {
                 x: 10,
-                y: 5
-            }]
-        }]
-    },
+                y: 5,
+              },
+            ],
+          },
+        ],
+      },
       now: this.$dayjs().format('DD/MM/YYYY'),
       measures: [],
       chartData: {
-       // labels: '',
+        // labels: '',
         datasets: [],
       },
       datacollection: '',
       loading: false,
       latest: '',
       firstRecord: '',
-      chartColors:['#610F45','#23C19A','#7466F2','#FD9EA6','#B1F76A','#F7552C'],
-      watchedData : ''
+      chartColors: [
+        '#610F45',
+        '#23C19A',
+        '#7466F2',
+        '#FD9EA6',
+        '#B1F76A',
+        '#F7552C',
+      ],
+      watchedData: '',
     }
   },
   methods: {
@@ -134,7 +115,7 @@ export default {
       this.loading = true
       this.$axios.get('/v1/measures').then((response) => {
         this.measures = response.data.data
-        
+
         this.loading = false
         console.log(this.measures)
         this.firstRecord = this.measures[0]
@@ -151,103 +132,95 @@ export default {
       return this.$moment(value).format('DD/MM/YYYY H:mm:s')
     },
     fillDataLine() {
-         this.chartData.labels = []
-        this.chartData.datasets = []
-        this.watcheddata = this.chartdsp(1,'day')
+      this.chartData.labels = []
+      this.chartData.datasets = []
+      this.watcheddata = this.chartdsp(1, 'day')
       let item
       for (item in this.options['measure_type']) {
-       this.chartData.labels = this.datasetsDate(this.watcheddata)
+        this.chartData.labels = this.datasetsDate(this.watcheddata)
         this.chartData.datasets.push({
           label: this.options['measure_type'][item],
-          data: this.datasetsValue(this.options['measure_type'][item],this.watcheddata),
+          data: this.datasetsValue(
+            this.options['measure_type'][item],
+            this.watcheddata
+          ),
           fill: false,
           backgroundColor: this.chartColors[item],
-           borderColor: this.chartColors[item],
-        showLines: true,
-        spanGaps: true,
+          borderColor: this.chartColors[item],
+          showLines: true,
+          spanGaps: true,
         })
       }
-      
-
       this.datacollection = this.chartData
-
       console.log(this.chartData.labels)
-
-     /* this.datacollection = {
-        labels: this.datasetsDate,
-        datasets: [
-          {
-            label: 'Data One',
-            backgroundColor: '#f87979',
-            borderColor: '#f87979',
-            fill: false,
-            showLines: true,
-            spanGaps: true,
-            data: this.datasetsValue('externalTemp'),
-          },
-          {
-              label: 'Data One',
-              backgroundColor: '#f87979',
-              data: [this.getRandomInt(), this.getRandomInt()]
-            }
-        ],
-      } */
     }, //filldata
     fillDataScatter() {
-       // this.chartData.labels = []
-        this.chartData.datasets = []
-this.watcheddata = this.chartdsp(1,'day')
+      // this.chartData.labels = []
+      this.chartData.datasets = []
+      this.watcheddata = this.chartdsp(1, 'day') //last 24h
+      //console.log(this.chartdsp(5,'day')) //last 5 days
+      console.log(this.$dayjs().startOf('month').toISOString())
+
       let item
       for (item in this.options['measure_type']) {
-       //this.chartData.labels = this.datasetsDate(this.watcheddata)
+        //this.chartData.labels = this.datasetsDate(this.watcheddata)
         this.chartData.datasets.push({
           label: this.options['measure_type'][item],
-          data: this.datasetsScatter(this.options['measure_type'][item],this.watcheddata),
-         // fill: false,
+          data: this.datasetsScatter(
+            this.options['measure_type'][item],
+            this.watcheddata
+          ),
           backgroundColor: this.chartColors[item],
-           borderColor: this.chartColors[item],
-       // showLines: true,
-       // spanGaps: true,
+          borderColor: this.chartColors[item],
         })
       }
-      console.log(this.chartData)
-
       this.datacollection = this.chartData
+      console.log(this.datacollection)
+    }, //fillDataScatter
+    chartdsp(
+      val,
+      unit //calculates the day. unit : days, month, year
+    ) {
+      return this.$dayjs().subtract(val, unit).toISOString()
+      //.format('DD/MM/YYYY H:mm')
     },
-    datasetsValue(val,fromtime) {
+    datasetsValue(val, fromtime) {
       return this.measures
-        .filter((p) => (p.measure_type === val))
+        .filter((p) => p.measure_type === val)
         .map((p) => p.measure_value)
-        //.reverse()
+      //.reverse()
     },
-     datasetsScatter2(val,fromtime) {
+    datasetsScatter2(val, fromtime) {
       return this.measures
-        .filter((p) => (p.measure_type === val))
-        .map((p) => [{x: this.$moment(p.created_at).unix(),y: p.measure_value}])
-        //.reverse()
+        .filter((p) => p.measure_type === val)
+        .map((p) => [
+          { x: this.$moment(p.created_at).unix(), y: p.measure_value },
+        ])
+      //.reverse()
     },
-    datasetsScatter(val,fromtime) {
+    datasetsScatter(val, fromtime) { //val is the measure Type@
       return this.measures
-        .filter((p) => (p.measure_type === val))
-        .reduce((accumulator, currentValue, index, array)=>{
-            accumulator.push({x: this.$moment(currentValue.created_at).unix(),y: currentValue.measure_value})
-            return accumulator;
-            },[])
-        //.map((p) => [{x: this.$moment(p.created_at).unix(),y: p.measure_value}])
-        //.reverse()
+        .filter((p) => p.measure_type === val)
+        .reduce((accumulator, currentValue, index, array) => {
+          accumulator.push({
+            //x: this.$moment(currentValue.created_at).unix(),
+            x: currentValue.created_at,
+            y: currentValue.measure_value,
+          })
+          return accumulator
+        }, [])
+      //.map((p) => [{x: this.$moment(p.created_at).unix(),y: p.measure_value}])
+      //.reverse()
     },
     datasetsDate(fromtime) {
-      return this.measures
-      //.filter((a) => (a.created_at.valueOf() > fromtime.valueOf()))
-      .map((p)=> p.created_at )
-        //.map((p) => this.$moment(p.created_at).format('H:mm a'))
-       // .reverse()
+      return (
+        this.measures
+          //.filter((a) => (a.created_at.valueOf() > fromtime.valueOf()))
+          .map((p) => p.created_at)
+      )
+      //.map((p) => this.$moment(p.created_at).format('H:mm a'))
+      // .reverse()
     },
-    chartdsp(val,unit)
-      {
-         return this.$dayjs().subtract(val,unit).toISOString()
-         //.format('DD/MM/YYYY H:mm')
-      },
   }, // methods
   computed: {
     async firstItem() {
@@ -273,7 +246,7 @@ this.watcheddata = this.chartdsp(1,'day')
     labels() {
       return this.options['measure_type']
     },
-    
+
     backgrounds() {
       return ['#f87979', '#f87979']
     },
